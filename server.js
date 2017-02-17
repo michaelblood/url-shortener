@@ -51,6 +51,10 @@ app.get('/new/:url(*)', (req, res) => {
 
 app.get('/:id', (req, res) => {
   let _id = req.params.id;
+  if (isURL(_id)) {
+    res.redirect('/new/' + _id);
+    return;
+  }
   db.find({_id: _id}, (err, docs) => {
     if (err) {
       res.json({
@@ -63,18 +67,19 @@ app.get('/:id', (req, res) => {
       res.redirect(doc.url);
       return;
     }
-    // todo: did you want to create a url?
-    // res.json({error: });
+    res.json({error: 'That id does not correspond to a URL'});
+    return;
   });
 });
 
 app.get('/', (req, res) => {
-
+  /* landing page */
+  res.end('Landing page');
 });
 
 app.get('/*', (req, res) => {
-  // redirect to landing page
-  res.redirect('/');
+  res.json({error: 'Invalid request'});
+  return;
 });
 
 app.listen(app.get('port'), () => {
