@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const shortid = require('shortid');
-const uri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/test-db';
+const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/test-db';
 
 mongoose.connect(uri);
 
