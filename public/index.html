@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,intial-scale=1">
+    <title>mbshort | URL shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>mbshort.herokuapp.com <small>a URL shortener microservice</small></h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <h3>Example use:</h3>
+          <p><br><code>http://mbshort.herokuapp.com/new/news.ycombinator.com/</code><br><br>
+          </p><h4>returns</h4>
+          <p><br><code>{"url":"mbshort.herokuapp.com/BJSD_mNFl","original":"http://news.ycombinator.com/"}</code>
+          <br><br></p>
+          <h4>Visiting the <i>short</i> URL will redirect to the original.</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

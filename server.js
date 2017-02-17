@@ -1,10 +1,13 @@
 const express = require('express');
 const db = require('./db');
+const path = require('path');
 
 const app = express();
 app.set('port', process.env.PORT || 5000);
 
 const isURL = require('validator').isURL
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/new/:url(*)', (req, res) => {
   const host = req.headers.host;
@@ -72,10 +75,9 @@ app.get('/:id', (req, res) => {
   });
 });
 
-app.get('/', (req, res) => {
-  /* landing page */
-  res.end('Landing page');
-});
+// app.get('/', (req, res) => {
+//   /* landing page */
+// });
 
 app.get('/*', (req, res) => {
   res.json({error: 'Invalid request'});
